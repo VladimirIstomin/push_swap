@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_stack_size.c                                   :+:      :+:    :+:   */
+/*   check_array_sorted.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmerlene <gmerlene@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/22 19:53:14 by gmerlene          #+#    #+#             */
-/*   Updated: 2021/11/23 14:56:24 by gmerlene         ###   ########.fr       */
+/*   Created: 2021/11/23 14:36:01 by gmerlene          #+#    #+#             */
+/*   Updated: 2021/11/23 14:38:23 by gmerlene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	get_stack_size(int *stack, int stack_max_size)
+int	check_array_sorted(int *array, int array_size)
 {
 	int	i;
 
 	i = 0;
-	while (stack[i] && i < stack_max_size)
+	while (i < array_size - 1)
+	{
+		if (array[i] > array[i + 1])
+			return (0);
 		i++;
-	return (i);
+	}
+	return (1);
 }

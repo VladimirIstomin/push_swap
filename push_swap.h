@@ -6,7 +6,7 @@
 /*   By: gmerlene <gmerlene@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 15:27:38 by gmerlene          #+#    #+#             */
-/*   Updated: 2021/11/22 20:13:44 by gmerlene         ###   ########.fr       */
+/*   Updated: 2021/11/23 15:08:26 by gmerlene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,7 @@ void	rra(t_stacks *stacks);
 void	rrb(t_stacks *stacks);
 void	rrr(t_stacks *stacks);
 int		get_stack_size(int *stack, int stack_max_size);
+void	quicksort(int *array, int array_size);
+int		check_array_sorted(int *array, int array_size);
 
 #endif
