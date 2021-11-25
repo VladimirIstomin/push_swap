@@ -6,7 +6,7 @@
 /*   By: gmerlene <gmerlene@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 14:41:30 by gmerlene          #+#    #+#             */
-/*   Updated: 2021/11/23 15:14:32 by gmerlene         ###   ########.fr       */
+/*   Updated: 2021/11/25 14:49:16 by gmerlene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	check_unique_elements(int *array, int array_size)
 	{
 		if (copy_of_array[i] == copy_of_array[i + 1])
 		{
+			ft_puterror(ERROR_DUPLICATES);
 			free(copy_of_array);
 			return (0);
 		}

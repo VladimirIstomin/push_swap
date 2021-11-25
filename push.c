@@ -6,7 +6,7 @@
 /*   By: gmerlene <gmerlene@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 15:36:21 by gmerlene          #+#    #+#             */
-/*   Updated: 2021/11/22 19:58:59 by gmerlene         ###   ########.fr       */
+/*   Updated: 2021/11/25 13:38:47 by gmerlene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,11 @@ static void	push(int *dst, int *src, int stack_max_size)
 void	pa(t_stacks *stacks)
 {
 	push(stacks->a, stacks->b, stacks->max_size);
+	write(1, PA, 3);
 }
 
 void	pb(t_stacks *stacks)
 {
 	push(stacks->b, stacks->a, stacks->max_size);
+	write(1, PB, 3);
 }
