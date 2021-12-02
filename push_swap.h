@@ -6,7 +6,7 @@
 /*   By: gmerlene <gmerlene@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 15:27:38 by gmerlene          #+#    #+#             */
-/*   Updated: 2021/11/25 14:50:50 by gmerlene         ###   ########.fr       */
+/*   Updated: 2021/12/02 15:04:45 by gmerlene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_stacks
 {
 	int	*a;
 	int	*b;
+	int	*solution;
 	int	max_size;
 }		t_stacks;
 
@@ -40,6 +41,8 @@ typedef struct s_stacks
 # define ERROR_DUPLICATES "Some integers are duplicated."
 # define ERROR_NOT_INTEGER "The input doesn't just consist of integers."
 # define ERROR_INTEGER_OVERFLOW "Some numbers are not integers due to overflow."
+# define ERROR_NO_ARGS "No arguments were passed."
+# define ERROR_STACK_ALLOCATION "Unable to allocate memory for stacks."
 
 void	sa(t_stacks *stacks);
 void	sb(t_stacks *stacks);
@@ -57,5 +60,8 @@ void	quicksort(int *array, int array_size);
 int		check_array_sorted(int *array, int array_size);
 int		check_integer(char *integer);
 void	ft_puterror(char *error);
+int		*initialize_array_of_integers(char **argv, int max_size);
+void	initialize_stacks_structure(t_stacks *stacks, char **argv);
+void	free_structure(t_stacks *stacks);
 
 #endif
