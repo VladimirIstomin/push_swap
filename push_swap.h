@@ -6,7 +6,7 @@
 /*   By: gmerlene <gmerlene@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 15:27:38 by gmerlene          #+#    #+#             */
-/*   Updated: 2021/12/02 15:04:45 by gmerlene         ###   ########.fr       */
+/*   Updated: 2021/12/02 16:36:55 by gmerlene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include "libft/libft.h"
 # include <limits.h>
-
-# include "tests/tests.h"
 
 typedef struct s_stacks
 {
@@ -58,6 +56,7 @@ void	rrr(t_stacks *stacks);
 int		get_stack_size(int *stack, int stack_max_size);
 void	quicksort(int *array, int array_size);
 int		check_array_sorted(int *array, int array_size);
+int		check_unique_elements(int *array, int array_size);
 int		check_integer(char *integer);
 void	ft_puterror(char *error);
 int		*initialize_array_of_integers(char **argv, int max_size);

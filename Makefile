@@ -1,13 +1,13 @@
 SRCS =			check_array_sorted.c check_integer.c check_unique_elements.c \
 				get_stack_size.c initialize_array_of_integers.c \
-				initialize_stack_structure.c main.c push.c quicksort.c \
-				rotate_reverse.c rotate.c swap.c utils.check_array_sorted
+				initialize_stacks_structure.c main.c push.c quicksort.c \
+				rotate_reverse.c rotate.c swap.c utils.c
 
 OBJS_DIR =		objs/
 
-OBJS =			$(addprefix ${OBJS_DIR} ${SRCS:.c=.o})
+OBJS =			$(addprefix ${OBJS_DIR}, ${SRCS:.c=.o})
 
-DEPS =			$(addprefix ${OBJS_DIR} ${SRCS:.c=.d})
+DEPS =			$(addprefix ${OBJS_DIR}, ${SRCS:.c=.d})
 
 NAME =			push_swap
 
@@ -33,7 +33,7 @@ ${LIBFT}:		FORCE
 				@${MAKE} -C ./libft all
 
 ${NAME}:		${OBJS} ${LIBFT} ${HEADER}
-				${CC} ${FLAGS_DEV} -L./libft -lft -o ${NAME}
+				${CC} ${FLAGS_DEV} -L./libft -lft ${OBJS} -o ${NAME}
 
 FORCE:			;
 

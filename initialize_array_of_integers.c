@@ -6,7 +6,7 @@
 /*   By: gmerlene <gmerlene@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 12:38:26 by gmerlene          #+#    #+#             */
-/*   Updated: 2021/12/02 14:26:25 by gmerlene         ###   ########.fr       */
+/*   Updated: 2021/12/02 16:38:15 by gmerlene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,19 @@ int	*initialize_array_of_integers(char **argv, int max_size)
 		return (NULL);
 	while (i < max_size)
 	{
-		if (check_integer(argv[i]))
-			array[i] = ft_atoi(argv[i]);
+		if (check_integer(argv[i + 1]))
+			array[i] = ft_atoi(argv[i + 1]);
 		else
 		{
 			free(array);
 			return (NULL);
 		}
 		i++;
+	}
+	if (!check_unique_elements(array, max_size))
+	{
+		free(array);
+		return (NULL);
 	}
 	return (array);
 }
