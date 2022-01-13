@@ -23,7 +23,7 @@ static int	check_only_digits(char *integer)
 	{
 		if (!ft_isdigit(integer[i]))
 		{
-			ft_puterror(ERROR_NOT_INTEGER);
+			ft_puterror();
 			return (0);
 		}
 		i++;
@@ -50,7 +50,7 @@ static int	check_integer_no_overflow(char *integer)
 	else if (int_len == intcmp_len && ft_strncmp(integer, intcmp, int_len) > 0)
 		is_no_overflow = 0;
 	if (!is_no_overflow)
-		ft_puterror(ERROR_INTEGER_OVERFLOW);
+		ft_puterror();
 	free(intcmp);
 	return (is_no_overflow);
 }

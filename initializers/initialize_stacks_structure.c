@@ -55,7 +55,7 @@ void	initialize_stacks_structure(t_stacks *s, int argc, char **argv)
 	if (!s->b || !s->solution)
 	{
 		free_structure(s);
-		ft_puterror(ERROR_STACK_ALLOCATION);
+		ft_puterror();
 	}
 	else
 		quicksort(ft_memcpy(s->solution, s->a, size * sizeof(int)), size);

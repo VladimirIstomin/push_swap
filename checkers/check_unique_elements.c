@@ -27,7 +27,7 @@ int	check_unique_elements(int *array, int array_size)
 	{
 		if (copy_of_array[i] == copy_of_array[i + 1])
 		{
-			ft_puterror(ERROR_DUPLICATES);
+			ft_puterror();
 			free(copy_of_array);
 			return (0);
 		}

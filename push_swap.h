@@ -44,13 +44,6 @@ typedef struct s_rotations
 # define RRB "rrb\n"
 # define RRR "rrr\n"
 
-# define ERROR_DUPLICATES "Some integers are duplicated."
-# define ERROR_NOT_INTEGER "The input doesn't just consist of integers."
-# define ERROR_INTEGER_OVERFLOW "Some numbers are not integers due to overflow."
-# define ERROR_NO_ARGS "No arguments were passed."
-# define ERROR_STACK_ALLOCATION "Unable to allocate memory for s."
-# define ERROR_UNKNOWN_INSTRUCTION "Unknown stack instruction."
-
 void	sa(t_stacks *s, int is_printable);
 void	sb(t_stacks *s, int is_printable);
 void	ss(t_stacks *s, int is_printable);
@@ -66,7 +59,7 @@ void	quicksort(int *array, int array_size);
 int		check_array_sorted(int *array, int array_size);
 int		check_unique_elements(int *array, int array_size);
 int		check_integer(char *integer);
-void	ft_puterror(char *error);
+void	ft_puterror();
 int		*initialize_array_of_integers(char **argv, int size);
 void	initialize_stacks_structure(t_stacks *s, int argc, char **argv);
 void	free_structure(t_stacks *s);

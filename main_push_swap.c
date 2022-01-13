@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 
 	if (argc == 1)
 	{
-		ft_puterror(ERROR_NO_ARGS);
+		ft_puterror();
 		return (1);
 	}
 	s.a = NULL;

@@ -12,11 +12,9 @@
 
 #include "push_swap.h"
 
-void	ft_puterror(char *error)
+void	ft_puterror()
 {
 	ft_putstr_fd("Error\n", 2);
-	ft_putstr_fd(error, 2);
-	ft_putchar_fd('\n', 2);
 }
 
 void	free_structure(t_stacks *s)
