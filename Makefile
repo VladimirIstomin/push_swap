@@ -42,22 +42,21 @@ FLAGS = 		-Wall -Werror -Wextra -O3 -MMD
 FLAGS_DEV =		-Wall -Werror -Wextra -g3 -MMD
 
 ${OBJS_DIR}%.o: %.c
-				${CC} ${FLAGS_DEV} -c $< -o $@
+				${CC} ${FLAGS} -c $< -o $@
 
 all:			${NAME}
 
 ${OBJS_DIR}:
 				@mkdir -p ${OBJS_DIR} ${OBJS_DIR}${CHECK_DIR} ${OBJS_DIR}${INIT_DIR} ${OBJS_DIR}${STACK_OPS_DIR} ${OBJS_DIR}${SORT_DIR}
 
-
 ${LIBFT}:		FORCE
 				@${MAKE} -C ./libft all
 
 ${NAME}:		${OBJS_DIR} ${OBJS} ${LIBFT} ${HEADER}
-				${CC} ${FLAGS_DEV} -L./libft -lft ${OBJS} -o ${NAME}
+				${CC} ${FLAGS} -L./libft -lft ${OBJS} -o ${NAME}
 
 ${CHECKER}:		${OBJS_DIR} ${OBJS_CHECKER} ${LIBFT} ${HEADER}
-				${CC} ${FLAGS_DEV} -L./libft -lft ${OBJS_CHECKER} -o ${CHECKER}
+				${CC} ${FLAGS} -L./libft -lft ${OBJS_CHECKER} -o ${CHECKER}
 
 FORCE:			;
 

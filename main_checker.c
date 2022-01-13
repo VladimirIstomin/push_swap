@@ -23,7 +23,7 @@ static	int	process_all_instructions(t_stacks *s)
 			return (1);
 		if (process_instruction(s, instruction) == 0)
 		{
-			ft_puterror(ERROR_UNKNOWN_INSTRUCTION);
+			ft_puterror();
 			return (0);
 		}
 	}
@@ -35,7 +35,7 @@ int	main(int argc, char **argv)
 
 	if (argc == 1)
 	{
-		ft_puterror(ERROR_NO_ARGS);
+		ft_puterror();
 		return (1);
 	}
 	s.a = NULL;

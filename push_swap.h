@@ -59,7 +59,7 @@ void	quicksort(int *array, int array_size);
 int		check_array_sorted(int *array, int array_size);
 int		check_unique_elements(int *array, int array_size);
 int		check_integer(char *integer);
-void	ft_puterror();
+void	ft_puterror(void);
 int		*initialize_array_of_integers(char **argv, int size);
 void	initialize_stacks_structure(t_stacks *s, int argc, char **argv);
 void	free_structure(t_stacks *s);
