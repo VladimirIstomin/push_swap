@@ -10,27 +10,34 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-static void	push(int *dst, int *src, int stack_max_size)
+void	pa(t_stacks *s, int is_printable)
 {
-	size_t	src_size;
-
-	if (!dst || !src || !src[0])
-		return ;
-	src_size = get_stack_size(src, stack_max_size);
-	dst[get_stack_size(dst, stack_max_size)] = src[src_size - 1];
-	src[src_size - 1] = 0;
+	if (s->size_b > 0)
+	{
+		ft_memmove(s->a + 1, s->a, sizeof(int) * s->size_a);
+		s->a[0] = s->b[0];
+		s->size_a++;
+		s->size_b--;
+		ft_memmove(s->b, s->b + 1, sizeof(int) * s->size_b);
+		s->b[s->size_b] = 0;
+		if (is_printable)
+			write(1, PA, 3);
+	}
 }
 
-void	pa(t_stacks *stacks)
+void	pb(t_stacks *s, int is_printable)
 {
-	push(stacks->a, stacks->b, stacks->max_size);
-	write(1, PA, 3);
-}
-
-void	pb(t_stacks *stacks)
-{
-	push(stacks->b, stacks->a, stacks->max_size);
-	write(1, PB, 3);
+	if (s->size_a > 0)
+	{
+		ft_memmove(s->b + 1, s->b, sizeof(int) * s->size_b);
+		s->b[0] = s->a[0];
+		s->size_a--;
+		s->size_b++;
+		ft_memmove(s->a, s->a + 1, sizeof(int) * s->size_a);
+		s->a[s->size_a] = 0;
+		if (is_printable)
+			write(1, PB, 3);
+	}
 }

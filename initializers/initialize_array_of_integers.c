@@ -1,21 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_stack_size.c                                   :+:      :+:    :+:   */
+/*   initialize_array_of_integers.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmerlene <gmerlene@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/22 19:53:14 by gmerlene          #+#    #+#             */
-/*   Updated: 2021/11/23 14:56:24 by gmerlene         ###   ########.fr       */
+/*   Created: 2021/12/02 12:38:26 by gmerlene          #+#    #+#             */
+/*   Updated: 2021/12/02 16:38:15 by gmerlene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	get_stack_size(int *stack, int stack_max_size)
+#include "../push_swap.h"
+
+int	*initialize_array_of_integers(char **argv, int size)
 {
 	int	i;
+	int	*array;
 
 	i = 0;
-	while (stack[i] && i < stack_max_size)
+	array = malloc(sizeof(int) * size);
+	if (!array)
+		return (NULL);
+	while (i < size)
+	{
+		if (check_integer(argv[i]))
+			array[i] = ft_atoi(argv[i]);
+		else
+		{
+			free(array);
+			return (NULL);
+		}
 		i++;
-	return (i);
+	}
+	if (!check_unique_elements(array, size))
+	{
+		free(array);
+		return (NULL);
+	}
+	return (array);
 }

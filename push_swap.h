@@ -21,8 +21,16 @@ typedef struct s_stacks
 	int	*a;
 	int	*b;
 	int	*solution;
-	int	max_size;
+	int	size_a;
+	int	size_b;
 }		t_stacks;
+
+typedef struct s_rotations
+{
+	int	a_rotations;
+	int	b_rotations;
+	int	total_rotations;
+}		t_rotations;
 
 # define SA "sa\n"
 # define SB "sb\n"
@@ -40,27 +48,33 @@ typedef struct s_stacks
 # define ERROR_NOT_INTEGER "The input doesn't just consist of integers."
 # define ERROR_INTEGER_OVERFLOW "Some numbers are not integers due to overflow."
 # define ERROR_NO_ARGS "No arguments were passed."
-# define ERROR_STACK_ALLOCATION "Unable to allocate memory for stacks."
+# define ERROR_STACK_ALLOCATION "Unable to allocate memory for s."
+# define ERROR_UNKNOWN_INSTRUCTION "Unknown stack instruction."
 
-void	sa(t_stacks *stacks);
-void	sb(t_stacks *stacks);
-void	ss(t_stacks *stacks);
-void	pa(t_stacks *stacks);
-void	pb(t_stacks *stacks);
-void	ra(t_stacks *stacks);
-void	rb(t_stacks *stacks);
-void	rr(t_stacks *stacks);
-void	rra(t_stacks *stacks);
-void	rrb(t_stacks *stacks);
-void	rrr(t_stacks *stacks);
-int		get_stack_size(int *stack, int stack_max_size);
+void	sa(t_stacks *s, int is_printable);
+void	sb(t_stacks *s, int is_printable);
+void	ss(t_stacks *s, int is_printable);
+void	pa(t_stacks *s, int is_printable);
+void	pb(t_stacks *s, int is_printable);
+void	ra(t_stacks *s, int is_printable);
+void	rb(t_stacks *s, int is_printable);
+void	rr(t_stacks *s, int is_printable);
+void	rra(t_stacks *s, int is_printable);
+void	rrb(t_stacks *s, int is_printable);
+void	rrr(t_stacks *s, int is_printable);
 void	quicksort(int *array, int array_size);
 int		check_array_sorted(int *array, int array_size);
 int		check_unique_elements(int *array, int array_size);
 int		check_integer(char *integer);
 void	ft_puterror(char *error);
-int		*initialize_array_of_integers(char **argv, int max_size);
-void	initialize_stacks_structure(t_stacks *stacks, char **argv);
-void	free_structure(t_stacks *stacks);
+int		*initialize_array_of_integers(char **argv, int size);
+void	initialize_stacks_structure(t_stacks *s, int argc, char **argv);
+void	free_structure(t_stacks *s);
+void	mini_sort(t_stacks *s);
+void	full_sort(t_stacks *s);
+int		find_max_index_in_array(int *array, int array_size);
+int		find_min_index_in_array(int *array, int array_size);
+void	define_rotations_for_index(t_stacks *s, t_rotations *rot, int pos_in_b);
+int		process_instruction(t_stacks *s, char *inst);
 
 #endif

@@ -19,12 +19,57 @@ void	ft_puterror(char *error)
 	ft_putchar_fd('\n', 2);
 }
 
-void	free_structure(t_stacks *stacks)
+void	free_structure(t_stacks *s)
 {
-	if (stacks->a)
-		free(stacks->a);
-	if (stacks->b)
-		free(stacks->b);
-	if (stacks->solution)
-		free(stacks->solution);
+	if (s->a)
+		free(s->a);
+	if (s->b)
+		free(s->b);
+	if (s->solution)
+		free(s->solution);
+	s->a = NULL;
+	s->b = NULL;
+	s->solution = NULL;
+}
+
+int	find_max_index_in_array(int *array, int array_size)
+{
+	int	i;
+	int	max;
+	int	max_index;
+
+	i = 1;
+	max = array[0];
+	max_index = 0;
+	while (i < array_size)
+	{
+		if (array[i] > max)
+		{
+			max = array[i];
+			max_index = i;
+		}
+		i++;
+	}
+	return (max_index);
+}
+
+int	find_min_index_in_array(int *array, int array_size)
+{
+	int	i;
+	int	min;
+	int	min_index;
+
+	i = 1;
+	min = array[0];
+	min_index = 0;
+	while (i < array_size)
+	{
+		if (array[i] < min)
+		{
+			min = array[i];
+			min_index = i;
+		}
+		i++;
+	}
+	return (min_index);
 }

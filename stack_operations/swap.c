@@ -10,38 +10,39 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-static void	swap(int *stack, int stack_max_size)
+static void	swap(int *stack, int stack_size)
 {
-	size_t	stack_size;
 	int		tmp;
 
 	if (!stack)
 		return ;
-	stack_size = get_stack_size(stack, stack_max_size);
 	if (stack_size < 2)
 		return ;
-	tmp = stack[stack_size - 1];
-	stack[stack_size - 1] = stack[stack_size - 2];
-	stack[stack_size - 2] = tmp;
+	tmp = stack[0];
+	stack[0] = stack[1];
+	stack[1] = tmp;
 }
 
-void	sa(t_stacks *stacks)
+void	sa(t_stacks *s, int is_printable)
 {
-	swap(stacks->a, stacks->max_size);
-	write(1, SA, 3);
+	swap(s->a, s->size_a);
+	if (is_printable)
+		write(1, SA, 3);
 }
 
-void	sb(t_stacks *stacks)
+void	sb(t_stacks *s, int is_printable)
 {
-	swap(stacks->b, stacks->max_size);
-	write(1, SB, 3);
+	swap(s->b, s->size_b);
+	if (is_printable)
+		write(1, SB, 3);
 }
 
-void	ss(t_stacks *stacks)
+void	ss(t_stacks *s, int is_printable)
 {
-	swap(stacks->a, stacks->max_size);
-	swap(stacks->b, stacks->max_size);
-	write(1, SS, 3);
+	swap(s->a, s->size_a);
+	swap(s->b, s->size_b);
+	if (is_printable)
+		write(1, SS, 3);
 }

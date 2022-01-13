@@ -1,41 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initialize_array_of_integers.c                     :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmerlene <gmerlene@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/02 12:38:26 by gmerlene          #+#    #+#             */
-/*   Updated: 2021/12/02 16:38:15 by gmerlene         ###   ########.fr       */
+/*   Created: 2021/12/02 12:31:09 by gmerlene          #+#    #+#             */
+/*   Updated: 2021/12/02 16:35:13 by gmerlene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*initialize_array_of_integers(char **argv, int max_size)
+int	main(int argc, char **argv)
 {
-	int	i;
-	int	*array;
+	t_stacks	s;
 
-	i = 0;
-	array = malloc(sizeof(int) * max_size);
-	if (!array)
-		return (NULL);
-	while (i < max_size)
+	if (argc == 1)
 	{
-		if (check_integer(argv[i + 1]))
-			array[i] = ft_atoi(argv[i + 1]);
-		else
-		{
-			free(array);
-			return (NULL);
-		}
-		i++;
+		ft_puterror(ERROR_NO_ARGS);
+		return (1);
 	}
-	if (!check_unique_elements(array, max_size))
+	s.a = NULL;
+	initialize_stacks_structure(&s, argc, argv);
+	if (s.a == NULL)
+		return (1);
+	if (check_array_sorted(s.a, s.size_a))
 	{
-		free(array);
-		return (NULL);
+		free_structure(&s);
+		return (0);
 	}
-	return (array);
+	else if (s.size_a <= 6)
+		mini_sort(&s);
+	else
+		full_sort(&s);
+	free_structure(&s);
+	return (0);
 }

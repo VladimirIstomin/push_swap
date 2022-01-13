@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   rotate_reverse.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmerlene <gmerlene@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,16 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-static void	rotate(int *stack, int stack_max_size)
+static void	rotate_reverse(int *stack, int stack_size)
 {
-	size_t	stack_size;
 	int		first;
 
 	if (!stack)
 		return ;
-	stack_size = get_stack_size(stack, stack_max_size);
 	if (stack_size < 2)
 		return ;
 	first = stack[stack_size - 1];
@@ -27,21 +25,24 @@ static void	rotate(int *stack, int stack_max_size)
 	stack[0] = first;
 }
 
-void	ra(t_stacks *stacks)
+void	rra(t_stacks *s, int is_printable)
 {
-	rotate(stacks->a, stacks->max_size);
-	write(1, RA, 3);
+	rotate_reverse(s->a, s->size_a);
+	if (is_printable)
+		write(1, RRA, 4);
 }
 
-void	rb(t_stacks *stacks)
+void	rrb(t_stacks *s, int is_printable)
 {
-	rotate(stacks->b, stacks->max_size);
-	write(1, RB, 3);
+	rotate_reverse(s->b, s->size_b);
+	if (is_printable)
+		write(1, RRB, 4);
 }
 
-void	rr(t_stacks *stacks)
+void	rrr(t_stacks *s, int is_printable)
 {
-	rotate(stacks->a, stacks->max_size);
-	rotate(stacks->b, stacks->max_size);
-	write(1, RR, 3);
+	rotate_reverse(s->a, s->size_a);
+	rotate_reverse(s->b, s->size_b);
+	if (is_printable)
+		write(1, RRR, 4);
 }
