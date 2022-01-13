@@ -34,10 +34,7 @@ int	main(int argc, char **argv)
 	t_stacks	s;
 
 	if (argc == 1)
-	{
-		ft_puterror();
-		return (1);
-	}
+		return (0);
 	s.a = NULL;
 	initialize_stacks_structure(&s, argc, argv);
 	if (s.a == NULL)
